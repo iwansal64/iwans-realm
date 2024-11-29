@@ -1,16 +1,94 @@
 ---
-
+import Header from "../components/homepage/header.astro";
+import Hero from "../components/homepage/hero.astro";
+import AboutMe from "../components/homepage/about_me.astro";
+import Career from "../components/homepage/career.astro";
+import Station from "../components/homepage/station.astro";
+import Footer from "../components/footer.astro";
+import CallToAction from "../components/call_to_action.astro";
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+			rel="stylesheet"
+		/>
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<Header />
+		<Hero />
+		<AboutMe />
+		<Career />
+		<Station />
+		<CallToAction />
+		<Footer />
 	</body>
 </html>
+
+<style is:global>
+	:root {
+		--text-color: #222;
+		--text-color-alt: #eee;
+		--background-color: #eee;
+
+		--accent-color: #7a86f1;
+		--accent-color-2: #6775f1;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		font-family: "Poppins", calibri;
+		color: var(--text-color);
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		background-color: var(--background-color);
+	}
+
+	a {
+		position: relative;
+		display: flex;
+		text-decoration: none;
+		font-weight: 600;
+		transition: 0.25s;
+	}
+
+	a::after {
+		content: "";
+		position: absolute;
+		bottom: -5px;
+
+		background-color: var(--text-color);
+
+		height: 2px;
+		width: 0;
+		transition-duration: 0.25s;
+	}
+
+	a:hover {
+		color: var(--accent-color);
+	}
+
+	a:hover::after {
+		width: 100%;
+		background: var(--accent-color);
+	}
+
+	hr.seperator {
+		margin: 20px 0;
+		opacity: 0;
+	}
+</style>

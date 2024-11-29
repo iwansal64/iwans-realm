@@ -1,0 +1,44 @@
+---
+import Image from "astro/components/Image.astro";
+
+import LogoImage from "../../public/logo.svg";
+
+const { loading = "lazy" } = Astro.props;
+---
+
+<div class="logo">
+    <Image
+        class="logo-img"
+        src={LogoImage}
+        alt="Logo"
+        width={50}
+        loading={loading}
+    />
+    <h1><span>Ridwan</span> Setiawan</h1>
+</div>
+
+<style>
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo-img {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+        font-weight: 800;
+        width: min-content;
+        line-height: 1;
+
+        color: var(--accent-color);
+    }
+
+    h1 > span {
+        font-size: 20px;
+        color: var(--accent-color-2);
+    }
+</style>

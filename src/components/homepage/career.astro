@@ -1,0 +1,118 @@
+---
+
+---
+
+<p class="dream-intro">I want to be a</p>
+<div class="dream"><span class="dream-name"></span></div>
+<p class="passion-intro">I love to do these things</p>
+<div class="passions">
+    <div class="items">
+        <p>Learn Linux</p>
+        <p>Practice LeetCodes</p>
+        <p>Creating Mobile Apps</p>
+        <p>Making Websites</p>
+        <p>Creating Servers</p>
+        <p>Practicing Mathematics</p>
+        <p>Learn Machine Learning</p>
+        <p>Practicing Hacking</p>
+    </div>
+    <div class="items">
+        <p>Learn Linux</p>
+        <p>Practice LeetCodes</p>
+        <p>Creating Mobile Apps</p>
+        <p>Making Websites</p>
+        <p>Creating Servers</p>
+        <p>Practicing Mathematics</p>
+        <p>Learn Machine Learning</p>
+        <p>Practicing Hacking</p>
+    </div>
+</div>
+<hr class="seperator" />
+
+<script is:inline>
+    const dreams = [
+        "Software Engineer",
+        "FullStack Engineer",
+        "Data Scientist",
+        "Cyber Security Analyst",
+    ];
+    const dream = document.getElementsByClassName("dream-name")[0];
+
+    let index = 0;
+    dream.innerHTML = dreams[index];
+    setInterval(() => {
+        dream.classList.add("close");
+        setTimeout(() => {
+            index += 1;
+            if (index >= dreams.length) {
+                index = 0;
+            }
+
+            dream.innerHTML = dreams[index];
+            dream.classList.remove("close");
+        }, 500);
+    }, 8000);
+</script>
+
+<style>
+    p.dream-intro,
+    p.passion-intro {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    div.dream {
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    span.dream-name {
+        display: block;
+        font-size: 32px;
+        font-weight: 800;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        transition: 1s;
+    }
+
+    span.dream-name.close {
+        bottom: 100px;
+    }
+
+    div.passions {
+        display: flex;
+        overflow: hidden;
+        gap: 40px;
+    }
+
+    div.passions > .items {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
+        gap: 40px;
+
+        transform: translateX(0);
+
+        animation-name: passion;
+        animation-duration: 32s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    div.passions > .items > p {
+        font-size: 24px;
+        font-weight: 800;
+    }
+
+    @keyframes passion {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(calc(-100% - 40px));
+        }
+    }
+</style>

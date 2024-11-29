@@ -1,0 +1,116 @@
+---
+
+---
+
+<section class="station" id="station">
+    <h1 class="title">Stations</h1>
+    <p class="subtitle">
+        <b>Know Me Better!</b> Sorry for the inconvinient but if you are interested
+        to something specific about me and want to learn more you can navigate to
+        each of this :)
+    </p>
+    <div class="stations">
+        <a href="/projects" class="projects">
+            <h1>Projects</h1>
+            <p class="info">
+                Look at some of the projects that i have ever built.
+            </p>
+        </a>
+
+        <a href="/branches" class="branches">
+            <h1>Branches</h1>
+            <p class="info">What branches or skills that i have right now?</p>
+        </a>
+
+        <a href="/socials" class="socials">
+            <h1>Socials</h1>
+            <p class="info">
+                See information about people that i know they so proficient at
+                their own skill!
+            </p>
+        </a>
+
+        <a href="/achievements" class="achievements">
+            <h1>Achievements</h1>
+            <p class="info">
+                Know what achievements that i have got until now.
+            </p>
+        </a>
+    </div>
+</section>
+<hr class="seperator" />
+
+<style>
+    section {
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 80px 40px;
+        box-sizing: border-box;
+        background-color: var(--accent-color-2);
+    }
+
+    section * {
+        color: var(--text-color-alt);
+    }
+
+    p.subtitle {
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    div.stations {
+        width: 100%;
+        height: 100%;
+
+        padding: 20px;
+        box-sizing: border-box;
+
+        display: grid;
+        /* grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr); */
+        grid-auto-flow: row;
+        gap: 10px;
+
+        place-items: center;
+    }
+
+    div.stations a {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+
+        border-radius: 25px;
+        background-color: var(--accent-color);
+    }
+
+    div.stations a::after {
+        content: none;
+    }
+
+    div.stations a:hover {
+        filter: brightness(50%);
+    }
+
+    div.stations a * {
+        color: var(--text-color-alt);
+    }
+
+    div.stations a. div.stations a h1 {
+        font-size: 18px;
+    }
+
+    div.stations a p {
+        font-size: 14px;
+        font-weight: 200;
+    }
+</style>

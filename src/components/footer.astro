@@ -1,0 +1,29 @@
+---
+import Logo from "./logo.astro";
+---
+
+<footer>
+    <div class="logo">
+        <Logo />
+    </div>
+    <div class="links">
+        <a href="https://www.instagram.com/iwan_wkwkw/">Instagram</a>
+        <a href="https://discordapp.com/users/773167740713566219">Discord</a>
+        <a href="https://www.github.com/iwansal64">GitHub</a>
+    </div>
+</footer>
+
+<style>
+    footer {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        padding: 20px;
+    }
+
+    div.links {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+</style>
