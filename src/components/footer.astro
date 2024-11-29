@@ -19,11 +19,21 @@ import Logo from "./logo.astro";
         align-items: center;
         gap: 40px;
         padding: 20px;
+        justify-content: space-between;
+        background-color: var(--footer-background-color);
     }
 
     div.links {
         display: flex;
         flex-direction: column;
         gap: 5px;
+    }
+
+    div.links a {
+        color: var(--text-color-alt);
+    }
+
+    div.links a::after {
+        background-color: var(--text-color-alt);
     }
 </style>

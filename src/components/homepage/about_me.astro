@@ -34,11 +34,23 @@
 
 <style>
     section {
+        position: relative;
+        transform: translateX(-50%);
+        left: 50%;
+
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 40px 20px 20px 20px;
+        padding: 40px 50px 20px 50px;
         box-sizing: border-boxs;
+    }
+
+    @media (min-width: 1000px) {
+        section {
+            max-width: 1200px;
+            padding: 40px 140px 20px 140px;
+            box-sizing: border-box;
+        }
     }
 
     p.subtitle {

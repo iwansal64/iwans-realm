@@ -7,24 +7,24 @@
 <p class="passion-intro">I love to do these things</p>
 <div class="passions">
     <div class="items">
-        <p>Learn Linux</p>
-        <p>Practice LeetCodes</p>
-        <p>Creating Mobile Apps</p>
-        <p>Making Websites</p>
-        <p>Creating Servers</p>
-        <p>Practicing Mathematics</p>
-        <p>Learn Machine Learning</p>
-        <p>Practicing Hacking</p>
+        <p class="item" data-index="3">Practice Hacking</p>
+        <p class="item" data-index="3">Learn Linux</p>
+        <p class="item active" data-index="0">Practice LeetCodes</p>
+        <p class="item active" data-index="0">Create Mobile Apps</p>
+        <p class="item" data-index="1">Make Websites</p>
+        <p class="item" data-index="1">Create Servers</p>
+        <p class="item" data-index="2">Practice Mathematics</p>
+        <p class="item" data-index="2">Learn Machine Learning</p>
     </div>
     <div class="items">
-        <p>Learn Linux</p>
-        <p>Practice LeetCodes</p>
-        <p>Creating Mobile Apps</p>
-        <p>Making Websites</p>
-        <p>Creating Servers</p>
-        <p>Practicing Mathematics</p>
-        <p>Learn Machine Learning</p>
-        <p>Practicing Hacking</p>
+        <p class="item" data-index="3">Practice Hacking</p>
+        <p class="item" data-index="3">Learn Linux</p>
+        <p class="item" data-index="0">Practice LeetCodes</p>
+        <p class="item" data-index="0">Create Mobile Apps</p>
+        <p class="item" data-index="1">Make Websites</p>
+        <p class="item" data-index="1">Create Servers</p>
+        <p class="item" data-index="2">Practice Mathematics</p>
+        <p class="item" data-index="2">Learn Machine Learning</p>
     </div>
 </div>
 <hr class="seperator" />
@@ -37,6 +37,7 @@
         "Cyber Security Analyst",
     ];
     const dream = document.getElementsByClassName("dream-name")[0];
+    const items = document.getElementsByClassName("item");
 
     let index = 0;
     dream.innerHTML = dreams[index];
@@ -49,6 +50,14 @@
             }
 
             dream.innerHTML = dreams[index];
+            Array.from(items).forEach((element) => {
+                if (element.dataset.index == index) {
+                    element.classList.add("active");
+                } else {
+                    element.classList.remove("active");
+                }
+            });
+
             dream.classList.remove("close");
         }, 500);
     }, 8000);
@@ -104,6 +113,11 @@
     div.passions > .items > p {
         font-size: 24px;
         font-weight: 800;
+        transition: 0.25s;
+    }
+
+    div.passions > .items > p.active {
+        color: var(--accent-color);
     }
 
     @keyframes passion {

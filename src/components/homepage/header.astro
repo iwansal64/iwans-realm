@@ -14,8 +14,85 @@ import Logo from "../logo.astro";
             href="https://mail.google.com/mail/?view=cm&fs=1&to=iwansal64@gmail.com&su=Hey, There's Something I want to talk about!"
             class="cto">Email Me</a
         >
+        <a href="#" class="dark-theme">Dark Theme?</a>
     </div>
 </header>
+
+<script is:inline>
+    let current_theme = "light";
+    const change_theme = () => {
+        if (current_theme == "light") {
+            document.documentElement.style.setProperty("--text-color", "#eee");
+            document.documentElement.style.setProperty(
+                "--text-color-alt",
+                "#222",
+            );
+            document.documentElement.style.setProperty(
+                "--background-color",
+                "#222",
+            );
+            document.documentElement.style.setProperty(
+                "--accent-color",
+                "#6775f1",
+            );
+            document.documentElement.style.setProperty(
+                "--accent-color-2",
+                "#7a86f1",
+            );
+            document.documentElement.style.setProperty(
+                "--container-brightness",
+                "150%",
+            );
+            document.documentElement.style.setProperty(
+                "--footer-background-color",
+                "#7a86f1",
+            );
+
+            current_theme = "dark";
+            window.localStorage.setItem("theme", "dark");
+            document.getElementsByClassName("dark-theme")[0].innerHTML =
+                "Light Theme?";
+        } else {
+            document.documentElement.style.setProperty("--text-color", "#222");
+            document.documentElement.style.setProperty(
+                "--text-color-alt",
+                "#eee",
+            );
+            document.documentElement.style.setProperty(
+                "--background-color",
+                "#eee",
+            );
+            document.documentElement.style.setProperty(
+                "--accent-color",
+                "#7a86f1",
+            );
+            document.documentElement.style.setProperty(
+                "--accent-color-2",
+                "#6775f1",
+            );
+            document.documentElement.style.setProperty(
+                "--container-brightness",
+                "100%",
+            );
+            document.documentElement.style.setProperty(
+                "--footer-background-color",
+                "#222",
+            );
+
+            current_theme = "light";
+            window.localStorage.setItem("theme", "light");
+            document.getElementsByClassName("dark-theme")[0].innerHTML =
+                "Dark Theme?";
+        }
+    };
+
+    if (window.localStorage.getItem("theme") == "dark") {
+        change_theme();
+    }
+
+    document.getElementsByClassName("dark-theme")[0].onclick = change_theme;
+</script>
+
 <hr class="seperator" />
 
 <style>
