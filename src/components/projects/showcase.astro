@@ -1,0 +1,20 @@
+---
+import { projects_data } from "../../variables/projects";
+import strftime from "strftime";
+
+---
+
+
+<section class="showcase">
+    {projects_data.map((project_data) => {
+        return <div class="showcase-item">
+            <h1 class="showcase-title">{project_data.title}</h1>
+            <p class="showcase-description">{project_data.description}</p>
+            <div class="showcase-date">
+                <p class="date-start">{strftime("%d %B %Y", project_data.dateStart)}</p>
+                {project_data.dateEnd?<p class="date-end">{strftime("%d %B %Y", project_data.dateEnd)}</p>:""}
+                <p class="date-end"></p>
+            </div>
+        </div>
+    })}
+</section>

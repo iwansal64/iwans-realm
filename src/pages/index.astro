@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 import Header from "../components/homepage/header.astro";
 import Hero from "../components/homepage/hero.astro";
 import AboutMe from "../components/homepage/about_me.astro";
@@ -20,7 +22,7 @@ import CallToAction from "../components/call_to_action.astro";
 		/>
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Ridwan's Realms : My Personal Website</title>
 	</head>
 	<body>
 		<Header />
@@ -32,65 +34,3 @@ import CallToAction from "../components/call_to_action.astro";
 		<Footer />
 	</body>
 </html>
-
-<style is:global>
-	:root {
-		--text-color: #222;
-		--text-color-alt: #eee;
-
-		--background-color: #eee;
-		--footer-background-color: #222;
-
-		--accent-color: #7a86f1;
-		--accent-color-2: #6775f1;
-
-		--container-brightness: 100%;
-	}
-
-	* {
-		margin: 0;
-		padding: 0;
-		font-family: "Poppins", calibri;
-		color: var(--text-color);
-	}
-
-	html {
-		scroll-behavior: smooth;
-	}
-
-	body {
-		background-color: var(--background-color);
-	}
-
-	a {
-		position: relative;
-		display: flex;
-		text-decoration: none;
-		font-weight: 600;
-		transition: 0.25s;
-	}
-
-	a::after {
-		content: "";
-		position: absolute;
-		bottom: -5px;
-
-		height: 2px;
-		width: 0;
-		transition-duration: 0.25s;
-	}
-
-	a:hover {
-		color: var(--accent-color);
-	}
-
-	a:hover::after {
-		width: 100%;
-		background: var(--accent-color);
-	}
-
-	hr.seperator {
-		margin: 20px 0;
-		opacity: 0;
-	}
-</style>

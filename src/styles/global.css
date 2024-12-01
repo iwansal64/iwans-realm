@@ -1,0 +1,60 @@
+:root {
+    --text-color: #222;
+    --text-color-alt: #eee;
+
+    --background-color: #eee;
+    --footer-background-color: #222;
+
+    --accent-color: #7a86f1;
+    --accent-color-2: #6775f1;
+
+    --container-brightness: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", calibri;
+    color: var(--text-color);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background-color);
+    transition: 0.5s;
+}
+
+a {
+    position: relative;
+    display: flex;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+
+    height: 2px;
+    width: 0;
+    transition-duration: 0.25s;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+a:hover::after {
+    width: 100%;
+    background: var(--accent-color);
+}
+
+hr.seperator {
+    margin: 20px 0;
+    opacity: 0;
+}
