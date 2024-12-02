@@ -54,5 +54,20 @@ export const projects_data: {
         category: ["Programming", "Website"],
         links: ["scvol3.vercel.app"],
         state: "Completed"
-    }
+    },
+    {
+        title: "Cat Sniffer",
+        description: "Cat Sniffer is a project that i create with my friend at school. This electronics device can be used to pentest WiFi network, Bluetooth, and LAN",
+        software: ["Visual Studio Code", "Platform IO"],
+        features: [
+            "Can test WiFi security",
+            "Can test device security wirelessly",
+            "Can test Bluetooth Security",
+            "Can check security vulnerability around LAN",
+        ],
+        dateStart: new Date("2024-08-22T06:26:00Z"),
+        category: ["Electronics", "Programming", "Cyber Security"],
+        links: ["scvol3.vercel.app"],
+        state: "On Progress"
+    },
 ];

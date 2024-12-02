@@ -1,5 +1,38 @@
 ---
 
+const current_url = "/"+String(Astro.url).split("/").at(-1);
+const stations: {
+    link: string,
+    class: string,
+    title: string,
+    info: string
+}[] = [
+    {
+        link: "/projects",
+        class: "projects",
+        title: "Project",
+        info: "Look at some of the projects that i have built.."
+    },
+    {
+        link: "/branches",
+        class: "branches",
+        title: "Branches",
+        info: "I have so many things that i want to learn."
+    },
+    {
+        link: "/socials",
+        class: "socials",
+        title: "Socials",
+        info: "See people that i know they so good at their field!"
+    },
+    {
+        link: "/achievements",
+        class: "achievements",
+        title: "Achievements",
+        info: "Do you want to know my achievements? Let's find out!"
+    },
+]
+
 ---
 
 <section class="station" id="station">
@@ -10,37 +43,24 @@
         each of this :)
     </p>
     <div class="stations">
-        <a href="/projects" class="projects">
-            <h1>Projects</h1>
-            <p class="info">
-                Look at some of the projects that i have ever built. Some are
-                results of team up.
-            </p>
-        </a>
-
-        <a href="/branches" class="branches">
-            <h1>Branches</h1>
-            <p class="info">
-                I have so many things that i want to learn. This is one of its
-                impact.
-            </p>
-        </a>
-
-        <a href="/socials" class="socials">
-            <h1>Socials</h1>
-            <p class="info">
-                See information about people that i know they so proficient at
-                their own skill!
-            </p>
-        </a>
-
-        <a href="/achievements" class="achievements">
-            <h1>Achievements</h1>
-            <p class="info">
-                Do you want to know what achievements that i have until now? Go
-                find out!
-            </p>
-        </a>
+        {stations.map(station_data => {
+            if(current_url !== station_data.link) {
+                return (<a href={station_data.link} class={station_data.class}>
+                    <h1>{station_data.title}</h1>
+                    <p class="info">
+                        {station_data.info}
+                    </p>
+                </a>);
+            } 
+            else {
+                return (<a href="/" class="home">
+                    <h1>Home</h1>
+                    <p class="info">
+                        Want to go back and see what was in the homepage?
+                    </p>
+                </a>);
+            }
+        })}
     </div>
 </section>
 <hr class="seperator" />

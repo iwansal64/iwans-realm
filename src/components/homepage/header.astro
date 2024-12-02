@@ -4,10 +4,12 @@ import Logo from "../logo.astro";
 
 <header>
     <div class="logo">
-        <Logo loading="eager" />
+        <a href="/">
+            <Logo loading="eager" />
+        </a>
     </div>
     <div class="list">
-        <a href="#about_me">About Me</a>
+        <a href="/#about_me">About Me</a>
         <a href="/#station">Station</a>
         <a href="/projects">Projects</a>
         <a
@@ -76,7 +78,7 @@ import Logo from "../logo.astro";
             );
             document.documentElement.style.setProperty(
                 "--footer-background-color",
-                "#222",
+                "#9ba5ff",
             );
 
             current_theme = "light";
@@ -111,5 +113,14 @@ import Logo from "../logo.astro";
 
         display: flex;
         justify-content: space-evenly;
+    }
+
+    @media (max-width: 500px) {
+    .list > a::after {
+        opacity: 1;
+        width: 100%;
+        background-color: var(--accent-color);
+        height: 1px;
+    }
     }
 </style>
