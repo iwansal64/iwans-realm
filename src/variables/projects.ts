@@ -1,4 +1,5 @@
 export const projects_data: {
+    project_id: number,
     title: string,
     description: string,
     features: string[],
@@ -18,6 +19,7 @@ export const projects_data: {
     state: string
 }[] = [
     {
+        project_id: 0,
         title: "Fitness Advisor",
         description: "This is my first hackathon projects that i've ever done. I teamed up with 7 peoples around the world to create a software that will be submitted to a competition (Hackathon) from Google.",
         software: ["Visual Studio Code", "GitLens"],
@@ -36,6 +38,7 @@ export const projects_data: {
         state: "On Progress"
     },
     {
+        project_id: 1,
         title: "Classmeeting Event Website",
         description: "This is my first website that i built for client which is a school, SMAN 1 SETU. I built this website because of my friend request. It contains the informations about the event",
         software: ["Visual Studio Code", "GitLens"],
@@ -56,6 +59,7 @@ export const projects_data: {
         state: "Completed"
     },
     {
+        project_id: 2,
         title: "Cat Sniffer",
         description: "Cat Sniffer is a project that i create with my friend at school. This electronics device can be used to pentest WiFi network, Bluetooth, and LAN",
         software: ["Visual Studio Code", "Platform IO"],
@@ -71,3 +75,20 @@ export const projects_data: {
         state: "On Progress"
     },
 ];
+
+export const categories: {
+    name: string,
+    color: string
+}[] = [{
+    name: "Programming",
+    color: "#2512cf"
+},{
+    name: "Cyber Security",
+    color: "#721462"
+},{
+    name: "Electronics",
+    color: "#616724"
+},{
+    name: "Website",
+    color: "#0fc91a"
+}]

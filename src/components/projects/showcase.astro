@@ -5,9 +5,10 @@ import strftime from "strftime";
 ---
 
 
+<p class="info">info: you can click one of these to learn more about the project!</p>
 <section class="showcase">
     {projects_data.map((project_data) => {
-        return <div class="showcase-item">
+        return <a class="showcase-item" href={"/projects/"+project_data.project_id}>
             <h1 class="showcase-title">{project_data.title}</h1>
             <p class="showcase-description">{project_data.description}</p>
             <div class="showcase-date">
@@ -15,13 +16,12 @@ import strftime from "strftime";
                 <p class="right-arrow">&rarr;</p>
                 {project_data.dateEnd?<p class="date-end">{strftime("%d %B %Y", project_data.dateEnd)}</p>:<p class="state">{project_data.state}</p>}
             </div>
-        </div>
+        </a>
     })}
 </section>
 
 <style>
     section {
-        margin-top: 40px;
         margin-bottom: 20px;
 
         padding: 20px;
@@ -29,7 +29,7 @@ import strftime from "strftime";
 
         display: grid;
         align-items: center;
-        filter: brightness(var(--container-brightness)); 
+        gap: 20px;
         
         background-color: transparent;
     }
@@ -46,9 +46,7 @@ import strftime from "strftime";
     }
 
 
-    div.showcase-item {
-        border-bottom: 2px solid white;
-        
+    a.showcase-item {
         width: 100%;
         height: 100%;
 
@@ -56,15 +54,40 @@ import strftime from "strftime";
         flex-direction: column;
         align-items: center;
 
-        padding: 10px 50px;
+        padding: 5px 50px;
         box-sizing: border-box;
+        border-radius: 15px;
+
+        background-color: var(--accent-color-2);
+        box-shadow: -5px 5px 2px 0 var(--accent-color);
+
+        cursor: pointer;
+
+        position: relative;
+        top: 0;
+        right: 0;
+
+        transition-duration: 0.25s;
+    }
+    a.showcase-item::after {
+        width: 100%;
+        opacity: 0;
+    }
+    a.showcase-item:hover {
+        top: 5px;
+        right: 5px;
+        box-shadow: 0 0 5px 0 var(--accent-color);
+    }
+    
+    a.showcase-item * {
+        color: var(--text-color-accent);
     }
 
-    div.showcase-item > p.showcase-description {
+    a.showcase-item > p.showcase-description {
         font-weight: 200;
     }
 
-    div.showcase-item > div.showcase-date {
+    a.showcase-item > div.showcase-date {
         margin-top: 10px;
         width: 100%;
 
@@ -74,5 +97,17 @@ import strftime from "strftime";
         gap: 5px;
     }
 
-    
+    p.info {
+        color: var(--text-color);
+        
+        margin-top: 40px;
+        text-align: center;
+        
+        position: relative;
+        transform: translateX(-50%);
+        left: 50%;
+        
+        font-size: small;
+        font-weight: 300;
+    }
 </style>

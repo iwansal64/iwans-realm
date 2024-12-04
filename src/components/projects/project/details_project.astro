@@ -1,0 +1,99 @@
+---
+import { projects_data, categories } from "../../../variables/projects";
+import strftime from "strftime";
+
+const { id } = Astro.params;
+const current_project_data = projects_data.find(project_data => project_data.project_id==Number.parseInt(id))
+
+---
+
+<section class="details-project">
+    <div class="features">
+        <h3>Features</h3>
+        <div class="list-features">
+            {current_project_data.features.map(feature => {
+                return <p class="feature">- {feature}</p>
+            })}
+        </div>
+    </div>
+    <div class="categories">
+        <h3>Categories</h3>
+        <div class="list-categories">
+            {current_project_data.category.map(category => {
+                return <div class="category" style={{"background-color": categories.find((value) => value.name == category).color}}>{category}</div>
+            })}
+        </div>
+    </div>
+    <div class="date-info">
+        <h3>Date</h3>
+        <p class="date-from">Starts: {strftime("%d %B %Y", current_project_data.dateStart)}</p>
+        <p class="date-to">{current_project_data.dateEnd?"Ends: "+strftime("%d %B %Y", current_project_data.dateEnd):current_project_data.state}</p>
+    </div>
+    {current_project_data.techStack?<div class="tech-stack">
+        <h3>Tech Stack</h3>
+        <div class="tech-stack-container">
+            {Object.entries(current_project_data.techStack.website||{}).map(([section, techstack]) => {
+                return <div class="tech-stack-group">
+                    <h4 class="tech-stack-head">{section}</h4>
+                    <div class="tech-stack-item">
+                        {techstack.map(tech => {
+                            return <div class="tech-stack">{tech}</div>
+                        })}
+                    </div>
+                </div>
+            })}
+        </div>
+    </div>:""}
+</section>
+
+<style>
+    section {
+        margin-top: 20px;
+        padding: 0 150px;
+    }
+    
+    section * {
+        text-align: center;
+    }
+
+    section > div {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    div.features > div.list-features {
+        width: 100%;
+        
+        display: flex;
+        flex-direction: column;
+    }
+    
+    div.features > div.list-features > * {
+        width: 100%;
+        text-align: left;
+    }
+
+    div.categories > div.list-categories {
+        display: flex;
+
+        width: max-content;
+        gap: 10px;
+    }
+
+    div.categories > div.list-categories > div.category {
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    div.tech-stack > div.tech-stack-container {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    div.tech-stack > div.tech-stack-container > div.tech-stack-group {
+        background-color: var(--accent-color);
+        padding: 5px;
+        border-radius: 10px;
+    }
+</style>

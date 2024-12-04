@@ -1,0 +1,22 @@
+---
+import { projects_data } from "../../../variables/projects"
+
+
+const { id } = Astro.params;
+const current_project_data = projects_data.find(project_data => project_data.project_id==Number.parseInt(id))
+---
+
+<section class="brief-project">
+    <h1 class="title">{current_project_data.title}</h1>
+    <p class="description">{current_project_data.description}</p>
+</section>
+
+<style>
+    section {
+        padding: 0 50px;
+    }
+    
+    section * {
+        text-align: center;
+    }
+</style>

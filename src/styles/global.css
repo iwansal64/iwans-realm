@@ -1,6 +1,7 @@
 :root {
     --text-color: #222;
     --text-color-alt: #eee;
+    --text-color-accent: #eee; 
 
     --background-color: #eee;
     --footer-background-color: #9ba5ff;

@@ -8,15 +8,18 @@ import Logo from "../logo.astro";
             <Logo loading="eager" />
         </a>
     </div>
+    <div class="list-activator">
+        <input type="checkbox" id="list-activator">
+    </div>
     <div class="list">
-        <a href="/#about_me">About Me</a>
-        <a href="/#station">Station</a>
-        <a href="/projects">Projects</a>
+        <a href="/#about_me" onclick="document.getElementById('list-activator').checked = false">About Me</a>
+        <a href="#station" onclick="document.getElementById('list-activator').checked = false">Station</a>
+        <a href="/projects" onclick="document.getElementById('list-activator').checked = false">Projects</a>
         <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=iwansal64@gmail.com&su=Hey, There's Something I want to talk about!"
+            href="https://mail.googrle.com/mail/?view=cm&fs=1&to=iwansal64@gmail.com&su=Hey, There's Something I want to talk about!" 
             class="cto">Email Me</a
         >
-        <a href="#" class="dark-theme">Dark Theme?</a>
+        <a class="change-theme" onclick="document.getElementById('list-activator').checked = false">Dark Theme?</a>
     </div>
 </header>
 
@@ -52,7 +55,7 @@ import Logo from "../logo.astro";
 
             current_theme = "dark";
             window.localStorage.setItem("theme", "dark");
-            document.getElementsByClassName("dark-theme")[0].innerHTML =
+            document.getElementsByClassName("change-theme")[0].innerHTML =
                 "Light Theme?";
         } else {
             document.documentElement.style.setProperty("--text-color", "#222");
@@ -83,7 +86,7 @@ import Logo from "../logo.astro";
 
             current_theme = "light";
             window.localStorage.setItem("theme", "light");
-            document.getElementsByClassName("dark-theme")[0].innerHTML =
+            document.getElementsByClassName("change-theme")[0].innerHTML =
                 "Dark Theme?";
         }
     };
@@ -92,7 +95,7 @@ import Logo from "../logo.astro";
         change_theme();
     }
 
-    document.getElementsByClassName("dark-theme")[0].onclick = change_theme;
+    document.getElementsByClassName("change-theme")[0].addEventListener("click", change_theme);
 </script>
 
 <hr class="seperator" />
@@ -115,12 +118,101 @@ import Logo from "../logo.astro";
         justify-content: space-evenly;
     }
 
-    @media (max-width: 500px) {
-    .list > a::after {
-        opacity: 1;
-        width: 100%;
-        background-color: var(--accent-color);
-        height: 1px;
+    .list-activator {
+        display: none;
     }
+
+    @media (max-width: 800px) {
+
+        .list-activator {
+            position: fixed;
+            top: 5vw;
+            right: 5vw;
+            
+            display: flex;
+
+            height: 30px;
+            width: 30px;
+            padding: 10px;
+            box-sizing: border-box;
+            z-index: 105;
+        }
+
+        .list-activator > input {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+
+            width: 100%;
+            height: 100%;
+
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .list-activator::before,
+        .list-activator::after {
+            content: '';
+
+            position: absolute;
+            right: -3px;
+
+            width: 100%;
+            height: 5px;
+            background-color: var(--text-color);
+
+            transition: 0.25s;
+        }
+
+        .list-activator::after {
+            top: 10px;
+            rotate: 45deg;
+        }
+
+        .list-activator::before {
+            top: 100%;
+            rotate: -45deg;
+        }
+
+        .list-activator:has(input:checked)::after,
+        .list-activator:has(input:checked)::before {
+            top: 50%;
+        }
+
+        div.list {
+            margin-top: 0;
+            height: 100vh;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -100%;
+            z-index: 100;
+
+            background-color: var(--background-color);
+            transition-duration: 0.5s;
+        }
+
+        div.list > a {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        div.list > a::after {
+            background-color: var(--accent-color);
+            transition-duration: 0.5s;
+        }
+        
+        .list-activator:has(input:checked) + div.list {
+            opacity: 1;
+            top: 0;
+        }
     }
 </style>
