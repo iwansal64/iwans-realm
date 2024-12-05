@@ -1,0 +1,20 @@
+---
+import SkillCard from "./skill_card.astro"
+import { skills } from "../../variables/skills"
+
+---
+
+<section class="branches">
+    {skills.map(skill => {
+        return <SkillCard skill_name={skill.skill_name} skill_desc={skill.skill_desc} skill_link={skill.skill_link} skill_image={skill.skill_image} />;
+    })}
+</section>
+
+<style>
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+    }
+</style>
