@@ -1,6 +1,11 @@
 ---
+import "../../../styles/global.css";
 import "../../../styles/sub_branch.css";
+import "../../../styles/smooth-disappear.css";
+import { projects_data } from "../../../variables/projects";
+import ShowcaseItem from "../../projects/project/showcase_item.astro";
 
+const programming_projects = projects_data.filter(value => value.category.includes("Programming"));
 ---
 
 <section class="hero">
@@ -8,20 +13,30 @@ import "../../../styles/sub_branch.css";
     <h3 class="subtitle">The first thing that I want will be in people's mind when they see me!</h3>
 </section>
 <section class="details">
-    <h1>Story</h1>
+    <h1 class="smooth-disappear-full">Story</h1>
     <div class="stories">
-        <p class="story">I like programming. </p>
-        <p class="story">Programming is not just about doing cool stuffs but, it also about hard work.</p>
-        <p class="story">Programming is not just about hacking but, it also about discipline.</p>
-        <p class="story">Programming is not just about creating a bunch of codes but, it also about creating a solution to solve a problem.</p>
+        <p class="story smooth-disappear-full">I like programming. </p>
+        <p class="story smooth-disappear-full">Programming is not just about doing cool stuffs but, it also about hard work.</p>
+        <p class="story smooth-disappear-full">Programming is not just about hacking but, it also about discipline.</p>
+        <p class="story smooth-disappear-full">Programming is not just about creating a bunch of codes but, it also about creating a solution to solve a problem.</p>
         <br>
-        <p class="story">It happened 4 years ago, when i exposed to a youtube video about someone creating his own game. At that time, I've got interested. I watch some of his videos later on until at 29th Ferbuary 2020, at night, I borrowed my sister's laptop to learn how to make my first own game, and that day was my first day of my journey to becoming a professional programmer (I hope the profession still exist in the future :)).</p>
+        <p class="story smooth-disappear-full">It happened 4 years ago, when i exposed to a youtube video about someone creating his own game. At that time, I've got interested. I watch some of his videos later on until at 29th Ferbuary 2020, at night, I borrowed my sister's laptop to learn how to make my first own game, and that day was my first day of my journey to becoming a professional programmer (I hope the profession still exist in the future :)).</p>
         <br>
-        <p class="story">Long story short, I've learned a lot from youtube about how to create a simple game. I learn how to create a basic platform, a player object and even create a basic program to control that player object. My first programming language that i learned that time was C#. It's going well because i just copy and paste all of the code, until i realized there's an error that I can't find it anywhere in the youtube video tutorial. I've got panicked and then got a little bit frustrated. I check and re-check the code and still can't find the answer. Until I gave up and leaving the game uncompleted. But I gave up that day because of a reason, I want to learn another programming language, and it's Java!</p>
+        <p class="story smooth-disappear-full">Long story short, I've learned a lot from youtube about how to create a simple game. I learn how to create a basic platform, a player object and even create a basic program to control that player object. My first programming language that i learned that time was C#. It's going well because i just copy and paste all of the code, until i realized there's an error that I can't find it anywhere in the youtube video tutorial. I've got panicked and then got a little bit frustrated. I check and re-check the code and still can't find the answer. Until I gave up and leaving the game uncompleted. But I gave up that day because of a reason, I want to learn another programming language, and it's Java!</p>
         <br>
-        <p class="story">Java is actually my first programming language that I learned for serious (not just copy and paste :v). I learned a lot! a bunch of programming keywords that I know are coming from that programming language! and also shout out to <a href="https://www.youtube.com/@KelasTerbuka">Kelas Terbuka</a> to tought me how to program! He teach me a lot about programming and I also learned Python programming language from him too! Btw back to topic. I learned so much from this programming language, I also learned how to find solution if I encounter a problem. That time was the turns happen.</p>
+        <p class="story smooth-disappear-full">Java is actually my first programming language that I learned for serious (not just copy and paste :v). I learned a lot! a bunch of programming keywords that I know are coming from that programming language! and also shout out to <a href="https://www.youtube.com/@KelasTerbuka">Kelas Terbuka</a> to tought me how to program! He teach me a lot about programming and I also learned Python programming language from him too! Btw back to topic. I learned so much from this programming language, I also learned how to find solution if I encounter a problem. That time was the turns happen.</p>
         <br>
-        <p class="story">And after that enlightment from learning Java, I can learn other programming language easily. Just search it on google or youtube and then i can learn the basics of programming language in relatively short time. For example is after i learned Java i come to Python, learn it for 1 month, and then I able to create a basic turtle racer game right here: <a href="https://github.com/iwansal64/Turtle-bukan-kura-kura">https://github.com/iwansal64/Turtle-bukan-kura-kura</a>. And that's the story for my Programming branch. It's one of the thing that makes me go to this position. It's a big thing that change my life and future.</p>
+        <p class="story smooth-disappear-full">And after that enlightment from learning Java, I can learn other programming language easily. Just search it on google or youtube and then i can learn the basics of programming language in relatively short time. For example is after i learned Java i come to Python, learn it for 1 month, and then I able to create a basic turtle racer game right here: <a href="https://github.com/iwansal64/Turtle-bukan-kura-kura">https://github.com/iwansal64/Turtle-bukan-kura-kura</a>. And that's the story for my Programming branch. It's one of the thing that makes me go to this position. It's a big thing that change my life and future.</p>
+    </div>
+    <script src="../../../javascripts/smooth-disappear.js"></script>
+</section>
+<section class="projects">
+    <h1>Project</h1>
+    <p class="subtitle">These are some of projects that I've built with my programming skill</p>
+    <div class="projects-container">
+        {programming_projects.map(programming_project => {
+            return <ShowcaseItem project_data={programming_project} />;
+        })}    
     </div>
 </section>
 
@@ -33,5 +48,30 @@ import "../../../styles/sub_branch.css";
     p > a::after {
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    section.projects {
+        display: flex;
+        flex-direction: column;
+    }
+
+    div.projects-container {
+        margin-bottom: 20px;
+
+        padding: 20px;
+        box-sizing: border-box;
+
+        display: grid;
+        align-items: center;
+        gap: 20px;
+        
+        background-color: transparent;
+    }
+    
+
+    @media (min-width: 1000px) {
+        div.projects-container {
+            grid-template-columns: 1fr 1fr;
+        }
     }
 </style>

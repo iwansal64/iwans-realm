@@ -1,0 +1,9 @@
+.smooth-disappear-full,
+.smooth-disappear-half {
+    opacity: 0;
+    transition-duration: 0.5s;
+}
+
+.smooth-active {
+    opacity: 1;
+}

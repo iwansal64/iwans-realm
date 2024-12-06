@@ -1,14 +1,14 @@
-export const projects_data: {
+export type ProjectData = {
     project_id: number,
     title: string,
     description: string,
     features: string[],
     software?: string[],
     techStack?: {
-        website?:{
+        website?: {
             frontend: string[],
-            backend?: string[]
-        }
+            backend?: string[];
+        };
     },
     links?: string[],
     tools?: string[],
@@ -16,8 +16,10 @@ export const projects_data: {
     dateStart: Date,
     dateEnd?: Date,
     category: string[],
-    state: string
-}[] = [
+    state: string;
+};
+
+export const projects_data: ProjectData[] = [
     {
         project_id: 0,
         title: "Fitness Advisor",
