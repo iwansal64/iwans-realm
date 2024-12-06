@@ -1,0 +1,21 @@
+h1 {
+    font-size: 3rem;
+}
+
+section {
+    padding: 40px 20px;
+}
+
+section.hero {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+section.details {
+    margin-top: 100px;
+    background-color: var(--accent-color-2);
+}
