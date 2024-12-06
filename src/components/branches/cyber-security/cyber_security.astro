@@ -1,0 +1,69 @@
+---
+import "../../../styles/global.css";
+import "../../../styles/sub_branch.css";
+import { projects_data } from "../../../variables/projects";
+import ShowcaseItem from "../../projects/project/showcase_item.astro";
+
+const cyber_security_projects = projects_data.filter(value => value.category.includes("Cyber Security"));
+---
+
+<section class="hero">
+    <h1 class="title">CYBER SECURITY</h1>
+    <h3 class="subtitle">I love to make things safer. Especially in this modern, interconnected world</h3>
+</section>
+<section class="details">
+    <h1>Story</h1>
+    <div class="stories">
+        <p class="story">I like Cyber Security. </p>
+        <p class="story">Back then when the early phone creation. People are still using mail to communicate to each other, newspaper to see news that happend a month ago, or books to learn a particular subject. But today, in this modern world we can do all of those in just one device. But why? well.. the key is <b>Internet</b>.</p>
+        <br>
+        <p class="story">Not like back in 90s, people nowdays have electronic devices, and some of it are connected to the internet. Wherever we are, whenever it is, our device are always vulnerable as long as it connects to the internet.</p>
+        <br>
+        <p class="story">But, The thing that got me interested so much is that the fact that many companies are vulnerable in term of cyber security. And the fact is, data is one of the <b>most important thing</b> in this world. For example if you have a bank card that has 50000$, the value of that card informations are as valuable as that 50000$! Now imagine you have a company credit card information, That would be very- very dangerous for the company right?? That's why Cyber Security profession is highly valueable and companies are paying high salary to a person that is proficient in cyber security</p>
+    </div>
+</section>
+<section class="projects">
+    <h1>Project</h1>
+    <p class="subtitle">These are some of projects that I've built with my Cyber Security skill</p>
+    <div class="projects-container">
+        {cyber_security_projects.map(programming_project => {
+            return <ShowcaseItem project_data={programming_project} />;
+        })}
+    </div>
+</section>
+
+<style>
+    p > a {
+        display: inline !important;
+    }
+
+    p > a::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    section.projects {
+        display: flex;
+        flex-direction: column;
+    }
+
+    div.projects-container {
+        margin-bottom: 20px;
+
+        padding: 20px;
+        box-sizing: border-box;
+
+        display: grid;
+        align-items: center;
+        gap: 20px;
+        
+        background-color: transparent;
+    }
+    
+
+    @media (min-width: 1000px) {
+        div.projects-container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+</style>
