@@ -1,0 +1,34 @@
+---
+import "../../../styles/global.css";
+import "../../../styles/sub-branch.css";
+import { projects_data } from "../../../variables/projects";
+import ShowcaseItem from "../../projects/project/showcase_item.astro";
+
+const physics_projects = projects_data.filter(value => value.category.includes("Physics"));
+---
+
+<section class="hero">
+    <h1 class="title">PHYSICS</h1>
+    <h3 class="subtitle">Physics is a subject that focused on learning how the world works.</h3>
+</section>
+<section class="details">
+    <h1>Story</h1>
+    <div class="stories">
+        <p class="story">I like Physics.</p>
+        <br>
+        <p class="story">with Physics you can predict how exactly things would go. Like you can calculate when does a plane arrive with some informations like plane average speed in the air, distance between airports and the time that the airplane take off</p>
+        <br>
+        <p class="story">The reason that I started like physics is because of the first anime that I watched back then in 2021. The anime is called Dr.Stone and it so cool! It makes me like physics and mathematics! I learned a lot from that anime, I watched every episodes until the last one which is in season 3 and today I still waiting for the last season which is season 4!</p>
+        <br>
+    <p class="story">Lately I've got interested so much in a sub branch of physics called Quantum Physics! The subject that talks about how something behaves in a scale of microscopics and even beyond! There are so many things that are very cool and also very hard to explain and think about. and if you didn't know in the future there will be a computer that much more powerful than super computer called <b>Quantum Computer</b>. It can perform a very- very heavy computational tasks easily for just several minutes whereas a super computer needs atleast 10.000 years for the same tasks</p>
+    </div>
+</section>
+<section class="projects">
+    <h1>Project</h1>
+    <p class="subtitle">These are some of projects that I've built with my Physics skill</p>
+    <div class="projects-container">
+    {physics_projects.map(physics_project => {
+            return <ShowcaseItem project_data={physics_project} />;
+        })}
+    </div>
+</section>

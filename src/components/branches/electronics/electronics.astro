@@ -4,7 +4,7 @@ import "../../../styles/sub-branch.css";
 import { projects_data } from "../../../variables/projects";
 import ShowcaseItem from "../../projects/project/showcase_item.astro";
 
-const electronic_projects = projects_data.filter(value => value.category.includes("Electronics"));
+const electronics_projects = projects_data.filter(value => value.category.includes("Electronics"));
 ---
 
 <section class="hero">
@@ -23,10 +23,10 @@ const electronic_projects = projects_data.filter(value => value.category.include
 </section>
 <section class="projects">
     <h1>Project</h1>
-    <p class="subtitle">These are some of projects that I've built with my Cyber Security skill</p>
+    <p class="subtitle">These are some of projects that I've built with my Electronics  skill</p>
     <div class="projects-container">
-    {electronic_projects.map(mathematic_project => {
-            return <ShowcaseItem project_data={mathematic_project} />;
+    {electronics_projects.map(electronics_project => {
+            return <ShowcaseItem project_data={electronics_project} />;
         })}
     </div>
 </section>
