@@ -1,0 +1,69 @@
+---
+import "../../../styles/global.css";
+import "../../../styles/sub_branch.css";
+import { projects_data } from "../../../variables/projects";
+import ShowcaseItem from "../../projects/project/showcase_item.astro";
+
+const mathematics_projects = projects_data.filter(value => value.category.includes("Mathematics"));
+---
+
+<section class="hero">
+    <h1 class="title">MATHEMATICS</h1>
+    <h3 class="subtitle">Learning this subject is almost as same as learning how to think.</h3>
+</section>
+<section class="details">
+    <h1>Story</h1>
+    <div class="stories">
+        <p class="story">I like Mathematics. </p>
+        <p class="story">Mathematics are absolutely hard. I know that (because i feel the same too :v) but, It trains our brain how to solve a problem, It's like we are playing a puzzle game where we have to find a way to solve that puzzle. It's fun but stressing at the same time :)</p>
+        <br>
+        <p class="story">Mathematics also teach how to breakdown problems into pieces! For example in Mathematics we tought about how to solve an algebra equation, we solve it by tearing down the equation part by part, for example '2x + 6 = 12'. We can first try to move the '6' from left side to the right side, but because it change side we have to reverse the sign from '+' to '-', so the result will be like this: '2x = 12 - 6'. we can then subtract '12' by that '6': '2x = 6'. and now after that, we can move the '2' in '2x' from left side to the right side but change the operation from multiplication (2x is as same as 2 * x) to division like this: 'x = 6 / 2'. and lastly divide 6 by the 2 that we just moved: 'x = 3'. and that's it, we have the answer!</p>
+        <br>
+        <p class="story">We can then applied this to the every day problems for example, after we come back home from school we usually drown in the flood of instagram reels, and that's a problem because it distract us from being productive. So the solution for this problem is first we try to set up timer before we open instagram, set 10 minutes for starting point, if we able to do it, lower down to 5 minutes timer, if though we can't do it you can uninstall instagram :). And after that we can then do something else that are more useful for example reading a manga, drawing sketch, or doing something productive that you love</p>
+    </div>
+</section>
+<section class="projects">
+    <h1>Project</h1>
+    <p class="subtitle">These are some of projects that I've built with my Cyber Security skill</p>
+    <div class="projects-container">
+    {mathematics_projects.map(mathematic_project => {
+            return <ShowcaseItem project_data={mathematic_project} />;
+        })}
+    </div>
+</section>
+
+<style>
+    p > a {
+        display: inline !important;
+    }
+
+    p > a::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    section.projects {
+        display: flex;
+        flex-direction: column;
+    }
+
+    div.projects-container {
+        margin-bottom: 20px;
+
+        padding: 20px;
+        box-sizing: border-box;
+
+        display: grid;
+        align-items: center;
+        gap: 20px;
+        
+        background-color: transparent;
+    }
+    
+
+    @media (min-width: 1000px) {
+        div.projects-container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+</style>
