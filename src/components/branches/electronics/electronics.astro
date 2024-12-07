@@ -1,0 +1,32 @@
+---
+import "../../../styles/global.css";
+import "../../../styles/sub-branch.css";
+import { projects_data } from "../../../variables/projects";
+import ShowcaseItem from "../../projects/project/showcase_item.astro";
+
+const electronic_projects = projects_data.filter(value => value.category.includes("Electronics"));
+---
+
+<section class="hero">
+    <h1 class="title">ELECTRONICS</h1>
+    <h3 class="subtitle">You can't cheat to be looking good at this subject.</h3>
+</section>
+<section class="details">
+    <h1>Story</h1>
+    <div class="stories">
+        <p class="story">I like Electronics.</p>
+        <br>
+        <p class="story">You cannot just cheat to look cool with Electronics because you have to show the result that you can create something with knowledge that you have. And also you have to buy equipments to do this for example, soldering iron, tin, PCB, and components that are required to make the circuit runs smoothly.</p>
+        <br>
+        <p class="story">My journey with Electronics starts after I go to Mitra Industri Vocational HighSchool choosing Industrial Electronics major. After I learned about Electronics in class I'm getting interested of the subject. It is cool to learn how electronics device works and then make something out of it!</p>
+    </div>
+</section>
+<section class="projects">
+    <h1>Project</h1>
+    <p class="subtitle">These are some of projects that I've built with my Cyber Security skill</p>
+    <div class="projects-container">
+    {electronic_projects.map(mathematic_project => {
+            return <ShowcaseItem project_data={mathematic_project} />;
+        })}
+    </div>
+</section>
