@@ -8,12 +8,16 @@ import strftime from "strftime";
     <h1 class="title">Achievements</h1>
 
     <div class="achievement-list">
+        <hr />
         {achievements.map(achievement => {
-            return <div class="achievement">
+            return <>
+            <div class="achievement">
                 <h3 class="achievement-title">{achievement.title}</h3>
                 <p class="achievement-description">{achievement.description}</p>
                 <p class="date-get">Date Obtained: {strftime("%d %B %Y", achievement.date_get)}</p>
             </div>
+            <hr />
+            </>
         })}
     </div>    
 </section>
