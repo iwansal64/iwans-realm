@@ -1,0 +1,49 @@
+---
+import { friends } from "../../variables/friends"
+---
+
+<section class="friends">
+    <h1>Friends</h1>
+    <p>Here are some of my friends that are proficient in their skills</p>
+    <div class="friend-list">
+        {
+            friends.map(friend => {
+                return <div class="friend">
+                    <h2 class="friend-name">{friend.name}</h2>
+                    <p class="friend-desc">{friend.short_desc}</p>
+                </div> 
+            })
+        }
+    </div>
+    <p class="warn">Sorry if there's someone that I forgot to put in here.</p>
+</section>
+
+<style>
+    h2 {
+        font-size: large;
+    }
+
+    section {
+        margin: 40px 20px 0 20px;    
+    }
+
+    div.friend-list {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    div.friend {
+        margin: 20px 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    p.warn {
+        margin-top: 20px;
+        text-align: center;
+        font-weight: 200;
+        font-size: small;
+    }
+</style>
