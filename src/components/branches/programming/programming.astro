@@ -1,6 +1,6 @@
 ---
 import "../../../styles/global.css";
-import "../../../styles/sub_branch.css";
+import "../../../styles/sub-branch.css";
 import "../../../styles/smooth-disappear.css";
 import { projects_data } from "../../../variables/projects";
 import ShowcaseItem from "../../projects/project/showcase_item.astro";
@@ -39,39 +39,3 @@ const programming_projects = projects_data.filter(value => value.category.includ
         })}    
     </div>
 </section>
-
-<style>
-    p > a {
-        display: inline !important;
-    }
-
-    p > a::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    section.projects {
-        display: flex;
-        flex-direction: column;
-    }
-
-    div.projects-container {
-        margin-bottom: 20px;
-
-        padding: 20px;
-        box-sizing: border-box;
-
-        display: grid;
-        align-items: center;
-        gap: 20px;
-        
-        background-color: transparent;
-    }
-    
-
-    @media (min-width: 1000px) {
-        div.projects-container {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-</style>
