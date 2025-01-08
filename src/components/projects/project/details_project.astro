@@ -45,6 +45,16 @@ const current_project_data = projects_data.find(project_data => project_data.pro
             })}
         </div>
     </div>:""}
+    {current_project_data.links?<div class="links">
+        <h3>Links</h3>
+        <div class="links-container">
+            <ul>
+                {current_project_data.links.map(link => {
+                    return <li><a href={link.link}>{link.name}</a></li>
+                })}
+            </ul>
+        </div>
+    </div>:""}
 </section>
 
 <style>

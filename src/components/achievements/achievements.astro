@@ -10,14 +10,27 @@ import strftime from "strftime";
     <div class="achievement-list">
         <hr />
         {achievements.map(achievement => {
-            return <>
-            <div class="achievement">
-                <h3 class="achievement-title">{achievement.title}</h3>
-                <p class="achievement-description">{achievement.description}</p>
-                <p class="date-get">Date Obtained: {strftime("%d %B %Y", achievement.date_get)}</p>
-            </div>
-            <hr />
-            </>
+            if(achievement.link) {
+                return <>
+                    <a class="achievement" href={achievement.link}>
+                        <h3 class="achievement-title">{achievement.title}</h3>
+                        <p class="achievement-description">{achievement.description}</p>
+                        <p class="date-get">Date Obtained: {strftime("%d %B %Y", achievement.date_get)}</p>
+                        <p class="click-info">Click to go to related link</p>
+                    </a>
+                    <hr />
+                </>
+            }
+            else {
+                return <>
+                    <div class="achievement">
+                        <h3 class="achievement-title">{achievement.title}</h3>
+                        <p class="achievement-description">{achievement.description}</p>
+                        <p class="date-get">Date Obtained: {strftime("%d %B %Y", achievement.date_get)}</p>
+                    </div>
+                    <hr />
+                </>
+            }
         })}
     </div>    
 </section>
@@ -32,10 +45,21 @@ import strftime from "strftime";
         
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 40px;
+    }
+
+    a.achievement {
+        display: flex;
+        flex-direction: column;
     }
 
     .achievement-title {
         font-size: large;
+    }
+
+    .click-info {
+        font-weight: 200;
+        margin: 10px;
+        opacity: 0.5;
     }
 </style>

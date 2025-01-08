@@ -10,7 +10,10 @@ export type ProjectData = {
             backend?: string[];
         };
     },
-    links?: string[],
+    links?: {
+        name: string,
+        link: string;
+    }[],
     tools?: string[],
     materials?: string[],
     dateStart: Date,
@@ -57,7 +60,10 @@ export const projects_data: ProjectData[] = [
         dateStart: new Date("2024-08-22T06:26:00Z"),
         dateEnd: new Date("2024-08-23T06:53:00Z"),
         category: ["Programming", "Website"],
-        links: ["scvol3.vercel.app"],
+        links: [{
+            name: "SCVol3 Website",
+            link: "https://scvol3.netlify.app/"
+        }],
         state: "Completed"
     },
     {
@@ -73,7 +79,6 @@ export const projects_data: ProjectData[] = [
         ],
         dateStart: new Date("2024-08-22T06:26:00Z"),
         category: ["Electronics", "Programming", "Cyber Security"],
-        links: ["scvol3.vercel.app"],
         state: "On Progress"
     },
 ];
