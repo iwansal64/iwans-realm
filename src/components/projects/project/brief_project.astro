@@ -4,19 +4,84 @@ import { projects_data } from "../../../variables/projects"
 
 const { id } = Astro.params;
 const current_project_data = projects_data.find(project_data => project_data.project_id==Number.parseInt(id))
+const projects_length = projects_data.length;
 ---
 
 <section class="brief-project">
+    <div class="project-navigations">
+        {(() => {
+            if((Number.parseInt(id) > 0) && (Number.parseInt(id) < (projects_length - 1))) {
+                return (
+                    <>
+                        <button id="prev">&larr;</button>
+                        <button id="next">&rarr;</button>
+                    </>
+                );
+            }
+            else if(Number.parseInt(id) > 0) {
+                return (
+                    <>
+                        <button id="prev">&larr;</button>
+                    </>
+                );
+            }
+            else {
+                return (
+                    <>
+                        <button id="next">&rarr;</button>
+                    </>
+                );
+            }
+        })()}
+        {(() => {
+        })()}
+    </div>
+    <script is:inline define:vars={{id}}>
+        const previous = document.getElementById("prev");
+        if(previous) {
+            previous.addEventListener("click", () => {
+                window.location.href = `./${Number.parseInt(id)-1}`
+            })
+        }
+        const next = document.getElementById("next");
+        if(next) {
+            next.addEventListener("click", () => {
+                window.location.href = `./${Number.parseInt(id)+1}`
+            })
+        }
+    </script>
     <h1 class="title">{current_project_data.title}</h1>
     <p class="description">{current_project_data.description}</p>
 </section>
 
 <style>
+    div.project-navigations {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    button {
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+
+    button:hover {
+        background-color: #ffffff25;
+    }
+    .title {
+        margin-top: 30px;
+    }
+    
     section {
         padding: 0 50px;
     }
     
     section * {
-        text-align: center;
+        text-align
     }
 </style>
