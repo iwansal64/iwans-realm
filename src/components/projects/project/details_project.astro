@@ -43,6 +43,15 @@ const current_project_data = projects_data.find(project_data => project_data.pro
                     </div>
                 </div>
             })}
+            {Object.entries(current_project_data.techStack.other||{}).map((techstack) => {
+                return <div class="tech-stack-group">
+                    <div class="tech-stack-item">
+                        {techstack.map(tech => {
+                            return <div class="tech-stack">{tech}</div>
+                        })}
+                    </div>
+                </div>
+            })}
         </div>
     </div>:""}
     {current_project_data.links?<div class="links">

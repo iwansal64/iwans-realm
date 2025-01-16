@@ -9,6 +9,7 @@ export type ProjectData = {
             frontend: string[],
             backend?: string[];
         };
+        other?: string[];
     },
     links?: {
         name: string,
@@ -77,6 +78,9 @@ export const projects_data: ProjectData[] = [
             "Can test Bluetooth Security",
             "Can check security vulnerability around LAN",
         ],
+        techStack: {
+            other: ["C++"]
+        },
         dateStart: new Date("2024-08-22T06:26:00Z"),
         category: ["Electronics", "Programming", "Cyber Security"],
         state: "On Progress"
@@ -90,9 +94,40 @@ export const projects_data: ProjectData[] = [
             "Give a brief explanation to what is Team IT",
             "Includes a registration form to join Team IT",
         ],
+        techStack: {
+            website: {
+                frontend: ["React JS", "Tailwind"]
+            }
+        },
+        links: [{
+            name: "Team IT Website",
+            link: "https://it-mivhs.vercel.app/"
+        }],
         dateStart: new Date("2024-12-14T20:00:00Z"),
         dateEnd: new Date("2025-01-10T05:49:00Z"),
-        category: ["Electronics", "Programming", "Cyber Security"],
+        category: ["Programming"],
         state: "Completed"
+    },
+    {
+        project_id: 4,
+        title: "Instaf1nder",
+        description: "Instaf1nder is a tool that used to gather information about Instagram account",
+        software: ["Visual Studio Code"],
+        features: [
+            "Get Instagram account's followers and following",
+            "Get Instagram account's links, maps, and emails if available",
+            "Get Instagram account's bio, posts, and profile picture",
+            "Dump all of the data into a file"
+        ],
+        techStack: {
+            other: ["Python"]
+        },
+        links: [{
+            name: "Github Repository",
+            link: "https://github.com/iwansal64/instaf1nder-py"
+        }],
+        dateStart: new Date("2024-12-25T00:00:00Z"),
+        category: ["Programming", "Cyber Security"],
+        state: "Will Be Updated"
     },
 ];
