@@ -81,4 +81,18 @@ export const projects_data: ProjectData[] = [
         category: ["Electronics", "Programming", "Cyber Security"],
         state: "On Progress"
     },
+    {
+        project_id: 3,
+        title: "Team IT Organization Website",
+        description: "I have been a part of a team to create a website for Team IT Community in Mitra Industri Vocational HighSchool. It includes the brief explanation of Team IT and Projects that we've made.",
+        software: ["Visual Studio Code"],
+        features: [
+            "Give a brief explanation to what is Team IT",
+            "Includes a registration form to join Team IT",
+        ],
+        dateStart: new Date("2024-12-14T20:00:00Z"),
+        dateEnd: new Date("2025-01-10T05:49:00Z"),
+        category: ["Electronics", "Programming", "Cyber Security"],
+        state: "Completed"
+    },
 ];
